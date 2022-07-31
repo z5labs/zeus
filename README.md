@@ -1,1 +1,1 @@
-# zeus - Open Source IoT Network for Power Monitoring
+# zeus - An Open Source IoT network for monitoring power consumption
