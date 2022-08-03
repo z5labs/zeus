@@ -1,0 +1,17 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{figure}[h!]
+  \begin{center}
+    \begin{circuitikz}[american]
+      \draw (0,0) node[ground](GND){} to [sV] ++(0,2) -- ++(1,0) node[transformer, anchor=A1](T){};
+      \draw (T.A2) to[short, -*] (T.A2-|GND);
+      \node [ocirc] at (T.B1){}; \node [ocirc] at (T.B2){};
+    \end{circuitikz}
+    \caption{Induction based AC sensor}
+  \end{center}
+\end{figure}
+\end{document}
