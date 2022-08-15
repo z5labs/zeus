@@ -5,7 +5,7 @@ latex_document(
     srcs = glob([
         "*.tex",
     ]) + [
-      "@bazel_latex//packages:multicol",
+      "@bazel_latex//packages:amsmath",
     ],
     main = "research.tex",
 ) 

@@ -1,13 +1,13 @@
 \documentclass{article}
 
-\usepackage{multicol}
+\usepackage{amsmath}
+\numberwithin{equation}{subsection}
 
 \title{Analyzing induction from an insulated wire carrying AC current}
 \author{Carson Derr <cakub6@gmx.com>}
 \date{August 2022}
 \begin{document}
 \maketitle
-\begin{multicols}{2}
 
 \section{Introduction}
 The goal here is to experiment with various designs for maximizing the inductance
@@ -16,9 +16,58 @@ from an insulated wire carrying a typical residental AC voltage and current.
 \section{Models}
 Unless otherwise noted, all interal wire resistance will be ignored in any of the following models.
 
+\subsection{Current Carrying Wire}
+
+The magnetic field around a wire carrying an alternating current can be written as:
+
+\begin{equation}
+\vec{B}(r, t) = \frac{\mu_0 i(t) \cos(\omega t + \varphi)}{2 \pi r}\vec{\phi}
+\end{equation}
+
 \subsection{Single Loop Inductor}
 
 \subsection{Toroidal Inductor}
+
+A toroidal inductor can be constructed by tightly wrapping wire around a torus (aka donut). A current
+carrying wire can then be placed azimuthal in the center of the torus causing a magnetic field to "flow"
+concentrically through the inductor.
+
+The magnetic flux within the inductor can then be computed using Equation 2.1.1 and stating
+that the loops of the toroid can be approximated as the sum of \(N\) number of loops each with an area
+given by the cross-sectional area of the torus.
+
+\subsubsection{Rectangular Toroid}
+
+Rotating a rectangle a distance, \(R_I\), around an axis parallel to one of its edges produces a rectangular toriod. If
+wire is tighly wrapped around this toroid so it can be thought of as \(N\) number of rectangular slices,
+then the magnetic flux from a current carrying wire placed along its axis of rotation is the following: 
+
+\begin{equation}
+\begin{split}
+\Phi_B(t) & = \int \vec{B}(r, t) \cdot \, \vec{dA} \\
+  & = \int B(r, t) \, dA \\
+  & = \frac{\mu_0 N b}{2 \pi} i(t) \cos(\omega t + \varphi) \int_{R_I}^{R_I + a} \frac{1}{r} \, dr \\
+  & = \frac{\mu_0 N b}{2 \pi} \ln(\frac{R_I + a}{R_I}) i(t) \cos(\omega t + \varphi) \\
+  & = \frac{\mu_0 N b}{2 \pi} \ln(1 + \frac{a}{R_I}) i(t) \cos(\omega t + \varphi)
+\end{split}
+\end{equation}
+
+Now, having computed the flux through through the toriod the induced emf can be computed.
+
+\begin{equation}
+\begin{split}
+E(t) = \frac{\mu_0 N b}{2 \pi} \ln(1 + \frac{a}{R_I}) [ \omega i(t) \sin(\omega t + \varphi) - \frac{di}{dt} cos(\omega t + \varphi)]
+\end{split}
+\end{equation}
+
+Assuming the current amplitude is constant, the induced emf can be simplified to:
+
+\begin{equation}
+\begin{split}
+E(t) = \frac{\mu_0 \omega N I b}{2 \pi} \ln(1 + \frac{a}{R_I}) \sin(\omega t + \varphi)
+\end{split}
+\end{equation}
+
 
 \subsection{Concentric Toroidal Inductor}
 
@@ -30,5 +79,4 @@ Unless otherwise noted, all interal wire resistance will be ignored in any of th
 
 \subsection{Concentric Toroidal Inductor}
 
-\end{multicols}
 \end{document}
