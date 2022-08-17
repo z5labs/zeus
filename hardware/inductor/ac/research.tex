@@ -68,6 +68,16 @@ E(t) = \frac{\mu_0 \omega N I b}{2 \pi} \ln(1 + \frac{a}{R_I}) \sin(\omega t + \
 \end{split}
 \end{equation}
 
+Another derivation of interest when studying alternating circuits is the root mean square (RMS) of a periodic value.
+In this case, we can calculate the RMS of the induced emf given by Equation 2.3.3.
+
+\begin{equation}
+\begin{split}
+E_{RMS} & = \sqrt{\frac{\omega}{2 \pi} \int_{\frac{\pi - \varphi}{\omega}}^{\frac{3 \pi - \varphi}{\omega}} E^2(t) \, dt} \\
+  & = \frac{\mu_0 \omega N I b}{2 \pi} \ln(1 + \frac{a}{R_I}) \sqrt{\frac{\omega}{2 \pi} \int_{\frac{\pi - \varphi}{\omega}}^{\frac{3 \pi - \varphi}{\omega}} \sin^2(\omega t + \varphi) \, dt} \\
+  & = \frac{\mu_0 \omega N I b}{2 \pi \sqrt{2}} \ln(1 + \frac{a}{R_I})
+\end{split}
+\end{equation}
 
 \subsection{Concentric Toroidal Inductor}
 
